@@ -10,6 +10,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Upload, Calendar, DollarSign, Ticket, CreditCard, User, Phone } from "lucide-react"
+import {
+  validateCreateLotteryForm,
+  createISODateTime,
+  parseLotteryPrice,
+  type CreateLotteryFormData,
+  type ValidationError
+} from "@/lib/lottery-validators"
 
 interface CreateLotteryFormProps {
   userId: string
