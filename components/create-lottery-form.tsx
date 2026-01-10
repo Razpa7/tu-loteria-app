@@ -59,6 +59,11 @@ export function CreateLotteryForm({ userId }: CreateLotteryFormProps) {
     setError(null)
 
     try {
+          // Validate form data
+    const validationErrors = validateCreateLotteryForm(formData)
+    if (validationErrors.length > 0) {
+      throw new Error(validationErrors.map(e => e.message).join(", "))
+    }
       const supabase = createClient()
 
       const { error: profileError } = await supabase
